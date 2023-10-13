@@ -1,0 +1,46 @@
+import java.io.*;
+class job implements Runnable{
+    int process_id,no_of_instr,priority_value,time_quantun;
+    Thread t;
+    job(int pid,int instr,int prio,int tq){
+        process_id = pid;
+        no_of_instr = instr;
+        priority_value = prio;
+        time_quantun = tq;
+        t= new Thread(this);
+        t.setPriority(priority_value);
+        t.start();
+    }
+    public void run(){
+        try{
+            for(int i = 1; i <= no_of_instr ;i++)
+            {
+                System.out.println("Executing instr no "+i+" of process "+process_id);
+                Thread.sleep(time_quantun);
+            }
+            System.out.println("Job "+process_id+" is over");
+        }
+        catch(InterruptedException e)
+        {
+            System.out.println("The job has been interrupted...");
+        }
+    }
+}
+
+class os{
+    public static void main(String[] args) {
+        try{
+            int process_id = 100 , time_quantun = 100;
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Enter a user process starting number: ");
+            process_id = Integer.parseInt(br.readLine());
+            System.out.println("Enter a time quantum(in millis)");
+            time_quantun = Integer.parseInt(br.readLine());
+            job j1 = new job(++process_id,8,9,time_quantun);
+            job j2 = new job(++process_id,8,1,time_quantun);
+            job j3 = new job(++process_id,8,2,time_quantun);
+        }
+        catch(Exception e){
+            System.out.println("Some process failred to complete...");
+            System.out.println("Plz contact system admin...");
+        }}}
