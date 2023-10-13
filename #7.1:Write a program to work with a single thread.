@@ -1,5 +1,5 @@
 1:
-Import java.io.*;
+import java.io.*;
 class GFG implements Runnable{
     public static void main(String[] args) {
         GFG gfg = new GFG();
