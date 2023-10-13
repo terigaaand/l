@@ -1,4 +1,4 @@
-Aim: Demonstrate round robin using threads.
+Aim: 
 Code:
 import java.io.*; 
 class job implements Runnable
