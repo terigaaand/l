@@ -1,5 +1,4 @@
-Aim: 
-Code:
+
 import java.io.*; 
 class job implements Runnable
 {
