@@ -1,0 +1,16 @@
+# Bubble Sort
+def BubbleSort(nlist):
+    for pos in range(len(nlist)-1,0,-1):
+        for i in range(pos):
+            if nlist[i]>nlist[i+1]:
+                temp=nlist[i]
+                nlist[i]=nlist[i+1]
+                nlist[i+1]=temp
+    return nlist
+inputlist=[]
+num=int(input("How many elements you want : "))
+for i in range(num):
+    elt=int(input("Enter element # "))
+    inputlist.append(elt)
+print("Entered unsorted list : ",inputlist)
+print("Element in sorted order : ",BubbleSort(inputlist))
