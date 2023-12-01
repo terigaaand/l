@@ -1,52 +1,44 @@
 # Merge Sort
-def MergeSort(arr):
-    if len(arr)>1:
-        mid=len(arr)//2
-        left_half=arr[:mid]
-        right_half=arr[mid:]
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left_half = arr[:mid]
+        right_half = arr[mid:]
 
-        MergeSort(left_half)
-        MergeSort(right_half)
-        i=j=k=0
+        merge_sort(left_half)
+        merge_sort(right_half)
+        i = j = k = 0
 
         while i < len(left_half) and j < len(right_half):
-            if left_half[i]<right_half[j]:
-                arr[k]=left_half[i]
-                i+=1
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
             else:
-                arr[k]=right_half[j]
-                j+=1
-            k+=1
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
 
         while i < len(left_half):
-            arr[k]=left_half[i]
-            i+=1
-            k+=1
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
 
         while j < len(right_half):
-            arr[k]=right_half[j]
-            j+=1
-            k+=1
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
         return arr
 
-inputlist=[]
-num=int(input("How many elements you want : "))
+input_list = []
+num = int(input("How many elements do you want : "))
 for i in range(num):
-    elt=int(input("Enter element # "))
-    inputlist.append(elt)
-print("Element in unsorted order : ",inputlist)
-print("Element in Sorted order : ",MergeSort(inputlist))
-public class GFG1 extends Thread {
-    public void run()
-    {
-        System.out.println("Welcome to Khalsa College.");
-    }
-    public static void main(String[] args) {
-        GFG1 g = new GFG1();
-        g.start();
-    }
-}
-Output:
+    elt = int(input("Enter element #{}: ".format(i + 1)))
+    input_list.append(elt)
+
+print("Elements in unsorted order:", input_list)
+sorted_list = merge_sort(input_list.copy())  # Copy the list to preserve the original
+print("Elements in sorted order:", sorted_list)
 
  
 
