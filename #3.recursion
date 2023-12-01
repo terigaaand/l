@@ -56,3 +56,16 @@ else:
     print("Fibonacci sequence:")
     for i in range(nterms):
         print(recur_fibQ(i))
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+tower of hanqi
+def moveTower(height, frompole, topole, withpole):
+    if height >= 1:
+        moveTower(height - 1, frompole, withpole, topole)
+        print("Moving disk", height, "from", frompole, "to", topole)
+        moveTower(height - 1, withpole, topole, frompole)
+
+# Example usage
+moveTower(3, "A", "C", "B")
