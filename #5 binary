@@ -1,28 +1,37 @@
 # Binary Search
-def BinarySearch(alist,item):
-    pos=0
-    first=False
-    last=len(alist)-1
-    found=False
-    while first<=last and not found:
-        midpoint=(first + last) // 2
-        if alist[midpoint]==item:
-            found=True
+def binary_search(alist, item):
+    pos = 0
+    first = 0
+    last = len(alist) - 1
+    found = False
+
+    while first <= last and not found:
+        midpoint = (first + last) // 2
+
+        if alist[midpoint] == item:
+            found = True
         else:
-            if item<alist[midpoint]:
-                last=midpoint-1
+            if item < alist[midpoint]:
+                last = midpoint - 1
             else:
-                first=midpoint+1
-        pos=pos+1
-    if found==True:
-        return item,"Found at position : ",pos+1
+                first = midpoint + 1
+
+        pos += 1
+
+    if found:
+        return f"{item} found at position: {pos}"
     else:
-        return item,"Not found. "
-inputlist=[]
-num=int(input("How many elements you want ? "))
+        return f"{item} not found."
+
+# Example usage
+input_list = []
+
+num = int(input("How many elements do you want? "))
+print("Enter numbers in sequence:")
 for i in range(num):
-    elt=int(input("Enter element # "))
-    inputlist.append(elt)
-print("Entered list : ",inputlist)
-search=int(input("Enter the element you want to search : "))
-print(BinarySearch(inputlist,search))
+    elt = int(input(f"Enter element #{i + 1}: "))
+    input_list.append(elt)
+
+print("Entered list:", input_list)
+search_element = int(input("Enter the element you want to search: "))
+print(binary_search(input_list, search_element))
