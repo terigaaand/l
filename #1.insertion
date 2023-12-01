@@ -20,3 +20,30 @@ arr[pos]=val
 print("After Initial Array : ")
 for i in range(n):
     print("Array [",i,"]",arr[i])
+
+
+-----------------------------------------------------------------------------------------
+deletion
+arr = []
+n = int(input("How many elements you want? "))
+for i in range(n):
+    elt = int(input("Enter element # "))
+    arr.append(elt)
+
+print("INITIAL ARRAY: ")
+for i in range(n):
+    print("Array[", i, "]", arr[i])
+
+pos = int(input("Enter position to delete: "))
+if pos < 1 or pos > n:
+    print("Invalid position")
+else:
+    j = pos - 1
+    while j < n - 1:
+        arr[j] = arr[j + 1]
+        j = j + 1
+    n = n - 1
+
+print("Array after deletion:")
+for i in range(n):
+    print("Array[", i, "]", arr[i])
